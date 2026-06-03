@@ -1,0 +1,74 @@
+{
+  "name": "lm2596-efficiency-calculator",
+  "version": "1.0.0",
+  "description": "LM2596 Buck Converter Efficiency Calculator with multiple implementations",
+  "type": "module",
+  "main": "./dist/core.umd.js",
+  "module": "./dist/core.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/core.es.js",
+      "require": "./dist/core.umd.js"
+    },
+    "./browser": {
+      "types": "./dist/types/browser/index.d.ts",
+      "import": "./dist/browser.es.js",
+      "require": "./dist/browser.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "dev:react": "vite --config vite.config.ts --open react.html",
+    "dev:d3": "vite --config vite.config.ts --open index.html",
+    "build": "npm run build:lib && npm run build:d3 && npm run build:react",
+    "build:lib": "tsc && vite build --mode library",
+    "build:d3": "vite build --mode d3-app --outDir dist-d3",
+    "build:react": "vite build --mode react-app --outDir dist-react",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "type-check": "tsc --noEmit",
+    "preview": "vite preview",
+    "preview:d3": "vite preview --outDir dist-d3",
+    "preview:react": "vite preview --outDir dist-react"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaeseopark/lm2596-efficiency-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jaeseopark/lm2596-efficiency-calculator/issues"
+  },
+  "homepage": "https://github.com/jaeseopark/lm2596-efficiency-calculator#readme",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/d3": "^7.4.3",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "@vitest/ui": "^4.1.8",
+    "jsdom": "^29.1.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  }
+}
